@@ -1,0 +1,121 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="square_world">
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+      <update_rate>10.0</update_rate>
+    </plugin>
+    <!-- Configurações de física do mundo -->
+    <!-- <physics type="ode">
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics> -->
+
+    <!-- Luz -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Plano de chão -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Paredes do quadrado -->
+    <model name="wall_1">
+      <pose>0 -1 0.25 0 0 0</pose> <!-- Centralizada no eixo Y e na posição -1m -->
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2 0.1 0.5</size> <!-- Comprimento 2m, largura 0.1m, altura 0.5m -->
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2 0.1 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_2">
+      <pose>1 0 0.25 0 0 1.5708</pose> <!-- Rotacionada em 90 graus para formar a lateral direita -->
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2 0.1 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2 0.1 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_3">
+      <pose>0 1 0.25 0 0 0</pose> <!-- Centralizada no eixo Y e na posição 1m -->
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2 0.1 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2 0.1 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_4">
+      <pose>-1 0 0.25 0 0 1.5708</pose> <!-- Rotacionada em 90 graus para formar a lateral esquerda -->
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2 0.1 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2 0.1 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
